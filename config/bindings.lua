@@ -16,17 +16,17 @@ end
 -- stylua: ignore
 local keys = {
    -- misc/useful --
-   { key = 'F1', mods = 'NONE', action = 'ActivateCopyMode' },
-   { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
-   { key = 'F3', mods = 'NONE', action = act.ShowLauncher },
-   { key = 'F4', mods = 'NONE', action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS' }) },
+   { key = 'F1', mods = mod.SUPER,     action = 'ActivateCopyMode' },
+   { key = 'F2', mods = mod.SUPER,     action = act.ActivateCommandPalette },
+   { key = 'F3', mods = mod.SUPER,     action = act.ShowLauncher },
+   { key = 'F4', mods = mod.SUPER_REV, action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS' }) },
    {
       key = 'F5',
-      mods = 'NONE',
+      mods = mod.SUPER,
       action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
    },
-   { key = 'F11', mods = 'NONE',    action = act.ToggleFullScreen },
-   { key = 'F12', mods = 'NONE',    action = act.ShowDebugOverlay },
+   { key = 'F11', mods = mod.SUPER, action = act.ToggleFullScreen },
+   { key = 'F12', mods = mod.SUPER, action = act.ShowDebugOverlay },
    { key = 'f',   mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) },
    {
       key = 'u',
