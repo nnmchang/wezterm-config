@@ -8,7 +8,8 @@ return {
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
    webgpu_preferred_adapter = gpu_adapters:pick_best(),
-
+   underline_position = '-1.5pt',
+   underline_thickness = '1.5pt',
    -- color scheme
    colors = colors,
 
