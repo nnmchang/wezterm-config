@@ -1,12 +1,16 @@
 local wezterm = require('wezterm')
-local platform = require('utils.platform')
-
-local font = 'Moralerspace Neon HWNF'
-local font_size = platform().is_mac and 12 or 10.5
 
 return {
-   font = wezterm.font(font),
-   font_size = font_size,
+   font_size = 11,
+   use_cap_height_to_scale_fallback_fonts = true,
+   font = wezterm.font_with_fallback({
+      {
+         family = 'Moralerspace Neon HWNF',
+         stretch = 'Normal',
+         weight = 'Regular',
+         italic = false,
+      },
+   }),
 
    --ref: https://wezfurlong.org/wezterm/config/lua/config/freetype_pcf_long_family_names.html#why-doesnt-wezterm-use-the-distro-freetype-or-match-its-configuration
    freetype_load_target = 'Normal', ---@type 'Normal'|'Light'|'Mono'|'HorizontalLcd'
