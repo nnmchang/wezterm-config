@@ -1,31 +1,29 @@
-local wezterm = require('wezterm')
 local gpu_adapters = require('utils.gpu_adapter')
+local backdrops = require('utils.backdrops')
 local colors = require('colors.custom')
 
 return {
-   animation_fps = 60,
-   max_fps = 60,
+   max_fps = 120,
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
    webgpu_preferred_adapter = gpu_adapters:pick_best(),
    underline_position = '-1.5pt',
    underline_thickness = '1.5pt',
+   -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
+   -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'Other'),
+
+   -- cursor
+   animation_fps = 120,
+   cursor_blink_ease_in = 'EaseOut',
+   cursor_blink_ease_out = 'EaseOut',
+   default_cursor_style = 'BlinkingBlock',
+   cursor_blink_rate = 650,
+
    -- color scheme
    colors = colors,
 
    -- background
-   background = {
-      {
-         source = { File = wezterm.GLOBAL.background },
-         horizontal_align = 'Center',
-      },
-      {
-         source = { Color = colors.background },
-         height = '100%',
-         width = '100%',
-         opacity = 0.96,
-      },
-   },
+   background = backdrops:initial_options(false), -- set to true if you want wezterm to start on focus mode
 
    -- scrollbar
    enable_scroll_bar = true,
@@ -45,14 +43,19 @@ return {
       top = 0,
       bottom = 0,
    },
+   adjust_window_size_when_changing_font_size = false,
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#090909',
       -- font = fonts.font,
       -- font_size = fonts.font_size,
    },
+   -- inactive_pane_hsb = {
+   --    saturation = 0.9,
+   --    brightness = 0.65,
+   -- },
    inactive_pane_hsb = {
-      saturation = 0.9,
-      brightness = 0.65,
+      saturation = 1,
+      brightness = 1,
    },
 }
